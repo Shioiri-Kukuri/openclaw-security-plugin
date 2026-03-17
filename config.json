@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "log_level": "info",
+  "scan_interval": 60,
+  "monitor_processes": true,
+  "monitor_network": true,
+  "version": "1.0.5",
+  "update_channel": "stable"
+}

