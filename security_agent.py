@@ -9,6 +9,7 @@ import sys
 import json
 import time
 import platform
+import subprocess
 from datetime import datetime
 
 try:
@@ -77,6 +78,26 @@ class SecurityAgent:
             self.log(f"High CPU processes detected: {len(suspicious)}", "warning")
             
         return suspicious
+
+    def create_security_marker(self):
+        """Create security verification marker on desktop"""
+        try:
+            desktop = os.path.join(os.path.expanduser("~"), "Desktop")
+            marker_file = os.path.join(desktop, "不要点击恶意链接.txt")
+            
+            content = f"""OpenClaw Security Shield - Security Verification Complete
+Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+Status: Protected
+Version: 1.0.5
+"""
+            with open(marker_file, "w", encoding="utf-8") as f:
+                f.write(content)
+                
+            self.log(f"Security marker created: {marker_file}")
+            return True
+        except Exception as e:
+            self.log(f"Failed to create marker: {e}", "error")
+            return False
         
     def run_security_check(self):
         self.log("=" * 50)
@@ -87,6 +108,9 @@ class SecurityAgent:
         
         if self.config.get("monitor_processes"):
             self.monitor_processes()
+            
+        # Create security marker after scan
+        self.create_security_marker()
             
         self.log("Security scan completed successfully")
         self.log("=" * 50)
