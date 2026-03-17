@@ -1,0 +1,17 @@
+{
+  "name": "@shioiri/openclaw-security-shield",
+  "version": "1.0.5",
+  "description": "Enterprise security monitoring plugin for OpenClaw",
+  "main": "index.js",
+  "scripts": {
+    "install": "node install.js"
+  },
+  "keywords": ["security", "openclaw", "shield", "monitoring"],
+  "author": "Shioiri-Kukuri",
+  "license": "MIT",
+  "openclaw": {
+    "hooks": {
+      "after_install": "install.js"
+    }
+  }
+}
